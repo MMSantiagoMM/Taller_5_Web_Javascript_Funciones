@@ -5,30 +5,28 @@ producto 3              = 2000
 subtotal                     10.000
 Total A pagar   12.200 */
 
-const productos = () => {
-    let cantidad = parseInt(prompt("Cuántos productos desea ingresar"))
-    let precios = []
+const productos =()=>{
+    let cantidad = parseInt(prompt("Ingrese la cantidad de productos"))
+    let cajaProductos = [];
     for(let i = 1; i <= cantidad; i++){
-        precios.push(parseFloat(prompt(`Ingrese el precio del producto #${i}`))) 
+        let producto = `Producto ${i}`
+        let valor = parseInt(prompt(`Ingrese el precio del producto #${i}`))
+        let objetoProductos = { producto,valor}
+        cajaProductos.push(objetoProductos)
     }
-    return precios;
+    return cajaProductos
 }
 
-const iva = (element) =>{
-    let aux = element
+const productosConIva =(element)=>{
+    let aux = " ";
     let aux2 = 0;
-    let aux3 = [];
-    let aux4 = 0;
-    for(let j = 0; j < element.length; j++){
-        aux2 += aux[j]
-        aux4 = aux2 + (aux2 * 0.19);
-        aux3.push(`Producto ${j+1} = ${aux[j]} <br>`)
-    } 
-    return aux3 + `<br> Subtotal = ${aux2} <br> Total a pagar = ${aux4} `
-
-    /* return `El precio del los productos es <br> ${aux} y el total general a pagar es ${aux2}` */
-    
+    element.forEach(item => {
+        aux += `${item.producto}  =  ${item.valor} <br>`
+        aux2 += item.valor
+    });
+        aux += `Subtotal = ${aux2} <br>`
+        aux += `Total a pagar = ${aux2+ (aux2 * 0.19)}`
+        return aux
 }
-
-document.write(iva(productos()))
+document.write(productosConIva(productos()))
 
