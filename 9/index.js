@@ -11,7 +11,7 @@ const productos =()=>{
     for(let i = 1; i <= cantidad; i++){
         let producto = `Producto ${i}`
         let valor = parseInt(prompt(`Ingrese el precio del producto #${i}`))
-        let objetoProductos = { producto,valor}
+        let objetoProductos = {producto,valor}
         cajaProductos.push(objetoProductos)
     }
     return cajaProductos

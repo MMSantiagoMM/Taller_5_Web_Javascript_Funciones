@@ -1,22 +1,31 @@
 /*  Cree una función que pida la fecha actual y por medio de otra función calcule cuántos días y semanas faltan para terminar el año. */
+let Texto = document.getElementById("texto")
+let Fecha = document.getElementById("fecha")
+const Calc = document.getElementById("calc")
 
 
+Calc.addEventListener("click", () => {
+    let texto = Texto;
+    let fecha = Fecha.value;
+    console.log(fecha)
 
-//Estas fechas se trabajan con el objeto Date
-//Fecha actual
-let fechaActual = new Date();
-console.log(fechaActual)
-//Año
-console.log(fechaActual.getFullYear())
-//Mes
-console.log(fechaActual.getMonth()+1)
-//Día del mes
-console.log(fechaActual.getDate())
-//Día de la semana
-console.log(fechaActual.getDay())
+    let calcularFecha = (element) => {
+        let fechaActual = new Date();
+        let milisegundos = (1000 * 60 * 60 * 24);
+        let fechaIngresada = new Date(element)
+        let resultado = (fechaIngresada - fechaActual) / milisegundos
+        return Math.ceil(resultado)
+    }
 
-//Timestamp: numero de milisegundos que han transcurrido desde el 1 de enero de 1970 hasta la actualidad
+    if (calcularFecha(fecha) < 0)
+        texto.textContent = "Fecha inválida"
+    else
+        texto.innerHTML += "Faltan " + calcularFecha(fecha) + " días para la fecha seleccionada" + "<br>";
+    
+    let calcularSemanas=(element)=>{
+        return Math.floor(element/7)
+    }
+    texto.innerText += "Faltan " + calcularSemanas(calcularFecha(fecha)) + " Semanas para la fecha seleccionada"
 
-const ingresoFeche=(dia,mes,annio)=>{
 
-}
+})

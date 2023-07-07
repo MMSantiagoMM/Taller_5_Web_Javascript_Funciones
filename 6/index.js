@@ -22,23 +22,23 @@ const validacion = (otraFuncion) => {
     let info = "El numero ingresado por usted es: " + numero + "<br> el resultado de la conversión es: " + otraFuncion
         if(grados == 2){
             if(otraFuncion < 0){
-                return info + " Nos congelamos <br>"
+                return info + ` °Celsius Nos congelamos <br>`
             }else if(otraFuncion < 16){
-                return info + " Está haciendo frío <br>"
+                return info + ` °Celsius Está haciendo frío <br>`
             }else if (otraFuncion < 25){
-                return info + " Está templado el día <br>"
+                return info + ` °Celsius Está templado el día <br>`
             }else {
-                return info + " Tiene friebre o el apocalipsis <br>"
+                return info + ` °Celsius Tiene friebre o el apocalipsis <br>`
             }
         } else if(grados == 1){
             if(otraFuncion < 32){
-                return info + " Nos congelamos <br>"
+                return info + ` °Fahrenheit Nos congelamos <br>`
             }else if(otraFuncion < 50){
-                return info + " Está haciendo frío <br>"
+                return info + ` °Fahrenheit Está haciendo frío <br>`
             }else if (otraFuncion  < 77){
-                return info + " Está templado el día <br>"
+                return info + ` °Fahrenheit Está templado el día <br>`
             }else {
-                return info + " Tiene friebre o el apocalipsis <br>"
+                return info + ` °Fahrenheit Tiene friebre o el apocalipsis <br>`
             }
         }
     
